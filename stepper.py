@@ -6,7 +6,7 @@ gpio.setmode(gpio.BOARD)
 # setup pins
 usedPins = [7, 11, 13, 15]
 for pin in usedPins:
-  gpio.setup(pin, OUTPUT)
+  gpio.setup(pin, gpio.OUT)
   gpio.output(pin, 0);
   
 seq = [ 
