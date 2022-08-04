@@ -19,12 +19,19 @@ try:
 
   # fullstep, 4 cycles, 1/64 gear reduction
   # 4*64 = 256, one resolution
+  print("clockwise")
   for i in range(256):
     for fullstep in range(4):
       for pin in range(4):
        gpio.output(usedPins[pin], seq[fullstep][pin])
        time.sleep(0.001)
-        
+       
+  print("counterclockwise")
+  for i in range(256):
+    for fullstep in range(4, 0, -1):
+      for pin range(4, 0, -1):
+        gpio.output(usedPins[pin], seq[fullstep][pin])
+  
 finally:
   gpio.cleanup()
   print("done");
