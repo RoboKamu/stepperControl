@@ -31,7 +31,7 @@ try:
   print("counterclockwise")
   for i in range(256):
     for fullstep in range(3, 0, -1):
-      for pin range(3, 0, -1):
+      for pin in range(3, 0, -1):
         gpio.output(usedPins[pin], seq[fullstep][pin])
         time.sleep(0.001)
   
