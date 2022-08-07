@@ -16,18 +16,10 @@ class StepperControls:
             ]
         
         # setup output pins and set output to 0
-        for pin in self.self.pins:
+        for pin in self.pins:
             gpio.setup(pin, gpio.OUT)
             gpio.output(pin, 0)
-'''
-    def setup(self):
-        gpio.setmode(gpio.BOARD)
 
-        # setup output pins and set output to 0
-        for pin in self.self.pins:
-            gpio.setup(pin, gpio.OUT)
-            gpio.output(pin, 0)
-'''
     def forward(self):
         print("Moving forward...")
         # Move forward
