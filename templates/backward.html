@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block buttons %}
+<!-- Make only stop clickable -->
+<div class="container">
+    <br> <br>
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-block btn"><button>Forward</button></a>
+            <a class="btn btn-block btn"><button>left</button></a></div>
+        <div class="col">
+            <a class="btn btn-block btn-info"><button>backward</button></a>
+            <a class="btn btn-block btn"><button>right</button></a>
+        </div>
+    </div>
+    <br>
+    <a href="/" class="btn btn-block btn-danger"><button>Stop</button></a>
+</div>    
+{% endblock %}
