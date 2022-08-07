@@ -20,7 +20,7 @@ class StepperControls:
             gpio.setup(pin, gpio.OUT)
             gpio.output(pin, 0)
 
-    def forward():
+    def forward(self):
         print("Moving forward...")
         # Move forward
         while 1:
@@ -29,7 +29,7 @@ class StepperControls:
                     gpio.output(self.pins[pin], seq[fullstep][pin])
                     time.sleep(0.001)
 
-    def back():
+    def back(self):
         print("Moving backwards...")
         # reverse the direction of previous function
         time.sleep(0.001)
@@ -39,7 +39,7 @@ class StepperControls:
                 gpio.output(self.pins[::-1][pin], seq[fullstep][pin])
                 time.sleep(0.001)
     
-    def stop():
+    def stop(self):
         print("stopped")
         time.sleep(0.001)
         gpio.cleanup()
