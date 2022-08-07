@@ -33,7 +33,7 @@ def right():
     return render_template("right.html")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=False)
+    app.run(host='0.0.0.0', debug=False, port="5000")
 
 '''
 # {{url}}/led?status=on
