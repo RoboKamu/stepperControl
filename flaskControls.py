@@ -5,6 +5,7 @@ from flask import Flask, redirect, url_for, render_template
 from StepperClass import StepperControls
 
 app = Flask(__name__)
+gpio.setmode(gpio.BOARD)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
