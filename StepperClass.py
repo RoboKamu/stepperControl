@@ -1,3 +1,6 @@
+import time
+import RPi.GPIO as gpio
+
 class StepperControls:
 
     def __init__(self, pins, direction):
