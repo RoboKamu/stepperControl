@@ -1,11 +1,11 @@
 import RPi.GPIO as gpio
 import time
 
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 from StepperClass import StepperControls
 
 app = Flask(__name__)
-gpio.setmode(gpio.BOARD)
+gpio.setwarnings(False)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
