@@ -15,8 +15,6 @@ class StepperControls:
             [1, 0, 0, 1] 
             ]
         
-        gpio.setmode(gpio.BOARD)
-
         # setup output pins and set output to 0
         for pin in self.self.pins:
             gpio.setup(pin, gpio.OUT)
