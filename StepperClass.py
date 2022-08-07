@@ -6,7 +6,7 @@ class StepperControls:
     def __init__(self, pins, direction):
         self.pins = pins
         self.direction = direction
-        gpio.setmode(gpio.BOARD
+        gpio.setmode(gpio.BOARD)
         # create global variable for the fullstep sequence
         global seq
         seq = [
