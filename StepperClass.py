@@ -34,17 +34,20 @@ class StepperControls:
                         gpio.output(self.pins[pin], seq[fullstep][pin])
                         time.sleep(0.001)
         except:
-            print("Runtime Erro 2")
-            
+            pass    # RuntimeError, stop() cleaned up pins so no pins availabe
+        
     def back(self):
         print("Moving backwards...")
         # reverse the direction of previous function
-        while 1:
-            for fullstep in range(4):
-                for pin in range(4):
-                    # inverse to pins array to iterate through the array backwards; making it go reverse
-                    gpio.output(self.pins[::-1][pin], seq[fullstep][pin])
-                    time.sleep(0.001)
+        try:
+            while 1:
+                for fullstep in range(4):
+                    for pin in range(4):
+                        # inverse to pins array to iterate through the array backwards; making it go reverse
+                        gpio.output(self.pins[::-1][pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+        except:
+            pass    # RuntimeError, stop() cleaned up pins so no pins availabe
     
     def stop(self):
         print("stopped")
