@@ -26,7 +26,7 @@ def forward():
 @app.route("/B")
 def back():
     
-    move = StepperControls([7, 11, 13, 15], "B")
+    move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "B")
     move.setup()
     move.back()
     return render_template("backward.html")
