@@ -31,7 +31,7 @@ class StepperControls:
             for fullstep in range(4):
                 for pin in range(4):
                     gpio.output(self.pins[pin], seq[fullstep][pin])
-                    time.sleep(0.001)
+                    time.sleep(0.5)
 
     def back(self):
         print("Moving backwards...")
@@ -41,7 +41,7 @@ class StepperControls:
             for pin in range(4):
                 # inverse to pins array to iterate through the array backwards; making it go reverse
                 gpio.output(self.pins[::-1][pin], seq[fullstep][pin])
-                time.sleep(0.001)
+                time.sleep(0.5)
     
     def stop(self):
         print("stopped")
