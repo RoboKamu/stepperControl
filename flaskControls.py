@@ -15,10 +15,13 @@ def home():
 
 @app.route("/F")
 def forward():
-    test = StepperControls([7, 11, 13, 15], "F")
-    test.setup()
-    test.forward()
-    return render_template("forward.html")
+    try:
+        test = StepperControls([7, 11, 13, 15], "F")
+        test.setup()
+        test.forward()
+        return render_template("forward.html")
+    finally:
+        gpio.cleanup()
 
 @app.route("/B")
 def back():
@@ -37,18 +40,3 @@ def right():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port="5000")
-
-'''
-# {{url}}/led?status=on
-@app.route('/', methods=['GET'])
-def led():
-    status = request.args.get('status')
-    if status == "on":
-        GPIO.output(18, GPIO.HIGH)
-        return jsonify({"message": "Led successfully turned on"})
-    elif status == "off":
-        GPIO.output(18, GPIO.LOW)
-        return jsonify({"message": "Led successfully turned off"})
-    else:
-        return jsonify({"message": "Not a valid status"})
-'''
