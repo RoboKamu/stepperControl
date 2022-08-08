@@ -4,6 +4,7 @@ import RPi.GPIO as gpio
 class StepperControls:
 
     def __init__(self, pins, direction):
+        # self.pins is the 2d list which consist of the pins for each stepper
         self.pins = pins
         self.direction = direction
         # create global variable for the fullstep sequence
@@ -20,9 +21,10 @@ class StepperControls:
     def setup(self):
         gpio.setmode(gpio.BOARD)
         # setup output pins and set output to 0
-        for pin in self.pins:
-            gpio.setup(pin, gpio.OUT)
-            gpio.output(pin, 0)
+        for stepperPins in self.pins:
+            for pin in stepperPins:
+                gpio.setup(pin, gpio.OUT)
+                gpio.output(pin, 0)
             
     def forward(self):
         print("Moving forward...")
@@ -30,13 +32,15 @@ class StepperControls:
         try:
             while 1:
                 for fullstep in range(4):
-                    for pin in range(4):
-                        gpio.output(self.pins[pin], seq[fullstep][pin])
-                        time.sleep(0.001)
+                    for arr in range(2):
+                        for pin in range(4):
+                            gpio.output(self.pins[arr][pin], seq[fullstep][pin])
+                            time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
         
     def back(self):
+        '''
         print("Moving backwards...")
         # reverse the direction of previous function
         try:
@@ -48,7 +52,7 @@ class StepperControls:
                         time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
-    
+    '''
     def stop(self):
         print("stopped")
         time.sleep(0.001)
