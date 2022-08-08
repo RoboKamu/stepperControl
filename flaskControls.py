@@ -9,14 +9,14 @@ gpio.setwarnings(False)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
-    move = StepperControls([7, 11, 13, 15], "S")
+    move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "S")
     move.stop()
     return render_template("index.html")
 
 @app.route("/F")
 def forward():
     try:
-        move = StepperControls([7, 11, 13, 15], "F")
+        move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "F")
         move.setup()
         move.forward()
         return render_template("forward.html")
