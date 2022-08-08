@@ -16,12 +16,14 @@ def home():
 @app.route("/F")
 def forward():
     test = StepperControls([7, 11, 13, 15], "F")
+    test.setup()
     test.forward()
     return render_template("forward.html")
 
 @app.route("/B")
 def back():
     test = StepperControls([7, 11, 13, 15], "B")
+    test.setup()
     test.back()
     return render_template("backward.html")
 
