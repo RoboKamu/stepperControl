@@ -36,7 +36,6 @@ class StepperControls:
     def back(self):
         print("Moving backwards...")
         # reverse the direction of previous function
-        time.sleep(0.5)
         while 1:
             for fullstep in range(4):
                 for pin in range(4):
