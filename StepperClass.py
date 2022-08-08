@@ -27,12 +27,15 @@ class StepperControls:
     def forward(self):
         print("Moving forward...")
         # Move forward
-        while 1:
-            for fullstep in range(4):
-                for pin in range(4):
-                    gpio.output(self.pins[pin], seq[fullstep][pin])
-                    time.sleep(0.001)
-
+        try:
+            while 1:
+                for fullstep in range(4):
+                    for pin in range(4):
+                        gpio.output(self.pins[pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+        except:
+            print("Runtime Erro 2")
+            
     def back(self):
         print("Moving backwards...")
         # reverse the direction of previous function
