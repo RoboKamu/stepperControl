@@ -35,7 +35,7 @@ class StepperControls:
                     for arr in range(2):
                         for pin in range(4):
                             gpio.output(self.pins[arr][pin], seq[fullstep][pin])
-                            time.sleep(0.1)
+                            time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
         
