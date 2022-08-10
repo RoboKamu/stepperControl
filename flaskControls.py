@@ -15,16 +15,15 @@ def home():
 
 @app.route("/F")
 def forward():
-    try:
-        render_template("forward.html")
-        move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "F")
-        move.setup()
-        move.forward()
-    finally:
-        gpio.cleanup()
+    gpio.cleanup()
+    move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "F")
+    move.setup()
+    move.forward()
+    render_template("forward.html")
 
 @app.route("/B")
 def back():
+    gpio.cleanup()
     move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "B")
     move.setup()
     move.back()
