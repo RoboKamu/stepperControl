@@ -19,6 +19,7 @@ class StepperControls:
       
 
     def setup(self):
+        gpio.cleanup()
         gpio.setmode(gpio.BOARD)
         # setup output pins and set output to 0
         for stepperPins in self.pins:
