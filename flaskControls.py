@@ -31,10 +31,18 @@ def back():
 
 @app.route("/L")
 def left():
+    gpio.cleanup()
+    move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "L")
+    move.setup()
+    move.left()
     return render_template("left.html")
 
 @app.route("/R")
 def right():
+    gpio.cleanup()
+    move = StepperControls([[7, 11, 13, 15], [31, 33, 35, 37]], "R")
+    move.setup()
+    move.right()
     return render_template("right.html")
 
     
