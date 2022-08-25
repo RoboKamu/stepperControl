@@ -54,6 +54,47 @@ class StepperControls:
                             time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
+        
+    def left(self):
+        # when turning left; we want the right stepper to move forward and the left one moving back
+        try: 
+            reverseArr = [i[::-1] for i in self.pins]
+            while 1:
+                # right stepper (the first list in the 2d list)
+                for fullstep in range(4):
+                    for pin in range(4):
+                        gpio.output(self.pins[0][pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+                
+                
+                # left stepper (the latter list in reverse)
+                for fullstep in range(4):
+                    for pin in range(4):
+                        gpio.output(reverseArr[0][pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+         except: 
+            pass    # RuntimeError, stop() cleaned up pins so no pins availabe
+        
+    def right(self):
+        # when turning right; make the left stepper move forward and right stepper move back
+        try: 
+            reverseArr = [i[::-1] for i in self.pins]
+            while 1:
+                # right stepper (the first list in the 2d list)
+                for fullstep in range(4):
+                    for pin in range(4):
+                        gpio.output(reverseArr[0][pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+                
+                
+                # left stepper (the latter list in reverse)
+                for fullstep in range(4):
+                    for pin in range(4):
+                        gpio.output(self.pins[0][pin], seq[fullstep][pin])
+                        time.sleep(0.001)
+         except: 
+            pass    # RuntimeError, stop() cleaned up pins so no pins availabe
+    
     
     def stop(self):
         print("stopped")
