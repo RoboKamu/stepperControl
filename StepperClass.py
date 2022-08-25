@@ -69,7 +69,7 @@ class StepperControls:
                 # left stepper (the latter list in reverse)
                 for fullstep in range(4):
                     for pin in range(4):
-                        gpio.output(reverseArr[0][pin], seq[fullstep][pin])
+                        gpio.output(reverseArr[1][pin], seq[fullstep][pin])
                         time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
@@ -89,7 +89,7 @@ class StepperControls:
                 # left stepper (the latter list in reverse)
                 for fullstep in range(4):
                     for pin in range(4):
-                        gpio.output(self.pins[0][pin], seq[fullstep][pin])
+                        gpio.output(self.pins[1][pin], seq[fullstep][pin])
                         time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
