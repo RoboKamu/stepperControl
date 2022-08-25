@@ -29,14 +29,14 @@ class StepperControls:
             
     def forward(self):
         print("Moving forward...")
-        # Move forward
+        # Move forward by moving both steppers
         try:
             while 1:
                 for fullstep in range(4):
                     for arr in range(2):
                         for pin in range(4):
                             gpio.output(self.pins[arr][pin], seq[fullstep][pin])
-                            time.sleep(0.01)
+                            time.sleep(0.001)
         except:
             pass    # RuntimeError, stop() cleaned up pins so no pins availabe
         
