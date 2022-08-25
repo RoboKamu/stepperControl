@@ -66,7 +66,6 @@ class StepperControls:
                         gpio.output(self.pins[0][pin], seq[fullstep][pin])
                         time.sleep(0.001)
                 
-                
                 # left stepper (the latter list in reverse)
                 for fullstep in range(4):
                     for pin in range(4):
